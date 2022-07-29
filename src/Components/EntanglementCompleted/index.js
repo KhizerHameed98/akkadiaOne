@@ -20,13 +20,13 @@ const index = () => {
                   <div className="image-block">
                     <div className="inner-image-block">
                       <img
-                        className="unanimated-mosheed"
-                        src="assets/images/animated-mosheed.png"
+                        class="unanimated-mosheed"
+                        src="assets/images/unanimated-mosheed.png"
                         alt="animated-mosheed"
                         style={{ maxHeight: '429px' }}
                       />
-                      <h3>ENTANGLEMENT LOCK IN PROGRESS</h3>
-                      <p>26%</p>
+                      <h3>ENTAGLEMENT COMPLETE</h3>
+                      <p> 100%</p>
                     </div>
                   </div>
                 </div>

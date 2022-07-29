@@ -12,6 +12,7 @@ import { Toaster } from 'react-hot-toast';
 import Userhome from './Components/Userhome';
 import EntanglementRequest from './Components/EntanglementRequest';
 import EntanglementProgress from './Components/EntanglementProgress';
+import EntanglementCompleted from './Components/EntanglementCompleted';
 
 function App() {
   return (
@@ -38,10 +39,14 @@ function App() {
             path="/entanglement-request"
             element={<EntanglementRequest />}
           ></Route>
-          {/* <Route
+          <Route
             path="/entanglement-progress"
             element={<EntanglementProgress />}
-          ></Route> */}
+          ></Route>
+          <Route
+            path="/entanglement-completed"
+            element={<EntanglementCompleted />}
+          ></Route>
         </Routes>
       </Router>
     </div>
