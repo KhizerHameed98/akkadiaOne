@@ -5,7 +5,9 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
 
-  const submitForm = () => {};
+  const submitForm = () => {
+    console.log("hey khizer===", username, email);
+  };
 
   return (
     <div>
@@ -47,7 +49,9 @@ const Login = () => {
                     }}
                   />
                 </div>
-                <button className="establish-connection">Gain Access</button>
+                <button className="establish-connection" onClick={submitForm}>
+                  Gain Access
+                </button>
               </div>
             </div>
           </div>

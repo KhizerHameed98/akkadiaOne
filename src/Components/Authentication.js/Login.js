@@ -1,6 +1,25 @@
-import React from 'react';
+import React, { useContext, useState } from "react";
+import toast from "react-hot-toast";
+import { Navigate, useNavigate } from "react-router";
+import { UberContext } from "../../context";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const { submitRegisterForm } = useContext(UberContext);
+  function isValidEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
+  const submitForm = async () => {
+    if (!isValidEmail(email)) {
+      toast.error("Invalid Email");
+    } else {
+      await submitRegisterForm(username, email);
+      navigate("/loading");
+    }
+  };
+
   return (
     <div>
       <div className="main-page">
@@ -8,7 +27,7 @@ const Login = () => {
           <div className="row padding">
             <div className="col-lg-12">
               <img
-                style={{ float: 'left' }}
+                style={{ float: "left" }}
                 src="assets/images/Logo.png"
                 alt="logo"
               />
@@ -27,11 +46,23 @@ const Login = () => {
                     className="user-name"
                     type="text"
                     placeholder="Username"
+                    onChange={(e) => {
+                      setUsername(e.target.value);
+                    }}
                   />
                   <br />
-                  <input className="email" type="text" placeholder="Email" />
+                  <input
+                    className="email"
+                    type="text"
+                    placeholder="Email"
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                  />
                 </div>
-                <button className="establish-connection">Gain Access</button>
+                <button className="establish-connection" onClick={submitForm}>
+                  Gain Access
+                </button>
               </div>
             </div>
           </div>

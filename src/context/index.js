@@ -126,9 +126,10 @@ export const UberProvider = ({ children }) => {
   const getLoggedInUser = async () => {
     try {
       let user = await axios.get(
-        `${GET_USER}/0xf9f40d2f56a655ed5e5b20b1f1ae806a79231cd4`
+        `${GET_USER}/${account}`
       );
       const data = user.data;
+      // console.log("hey =====", typeof data);
       // let data = JSON.stringify(user.data);
       // let email = data.split("\n");
       // email = email[0].split(":");
