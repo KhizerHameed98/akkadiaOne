@@ -11,6 +11,8 @@ import { abi } from "./abi.js";
 import addresses from "./addresses.json";
 import { merkledrop, merkleValue } from "./merkledrop";
 import axios from "axios";
+import { GET_USER, REGISTER_USER } from "../Routes/serverRoutes";
+import toast from "react-hot-toast";
 export const UberContext = createContext();
 export const UberProvider = ({ children }) => {
   const [account, setAccount] = useState("");
@@ -22,14 +24,31 @@ export const UberProvider = ({ children }) => {
   const [isValidOrNot, setIsValidOrNot] = useState();
   const [hasNFT, setHasNFT] = useState();
   const [fileImg, setFileImg] = useState();
+  const [userInfo, setUserInfo] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [registeredAlready, setRegisteredAlready] = useState();
 
   const connectMetamask = async () => {
-    let providerTemp = new ethers.providers.Web3Provider(window.ethereum);
-    setProvider(providerTemp);
-    let accounts = await providerTemp.send("eth_requestAccounts", []);
-    setAccount(accounts[0]);
-    let cont = await new ethers.Contract(contractAddress, abi, providerTemp);
-    setContract(cont);
+    try {
+      setLoading(true);
+      if (window.ethereum !== "undefined") {
+        let providerTemp = new ethers.providers.Web3Provider(window.ethereum);
+        setProvider(providerTemp);
+        let accounts = await providerTemp.send("eth_requestAccounts", []);
+        setAccount(accounts[0]);
+        let cont = await new ethers.Contract(
+          contractAddress,
+          abi,
+          providerTemp
+        );
+
+        setContract(cont);
+      } else {
+        toast.error("Please install metamask");
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   const getBalance = async () => {
@@ -46,28 +65,33 @@ export const UberProvider = ({ children }) => {
   };
 
   const checkIsValid = async () => {
-    let index = addresses.findIndex(
-      (address) => address.toLocaleLowerCase() === account.toLocaleLowerCase()
-    );
-    if (index >= 0) {
-      let prof = merkleTree[index];
-      setProof(merkleTree[index]);
-      let checkLeaf = await contract.checkleaf(account);
-      setLeaf(checkLeaf);
-      let isValid = await contract.isValid(prof, checkLeaf);
-      setIsValidOrNot(isValid);
-      let nftOwned = await contract.mintcheck(account);
-      setHasNFT(nftOwned);
-      if (nftOwned) {
-        getNft();
+    try {
+      let index = addresses.findIndex(
+        (address) => address.toLocaleLowerCase() === account.toLocaleLowerCase()
+      );
+      if (index >= 0) {
+        let prof = merkleTree[index];
+        setProof(merkleTree[index]);
+        let checkLeaf = await contract.checkleaf(account);
+        setLeaf(checkLeaf);
+        let isValid = await contract.isValid(prof, checkLeaf);
+        setIsValidOrNot(isValid);
+        let nftOwned = await contract.mintcheck(account);
+        setHasNFT(nftOwned);
+        setLoading(false);
+        if (nftOwned) {
+          getNft();
+        }
+      } else {
+        setLoading(false);
+        toast.error("You are not a whitelisted user");
       }
-      console.log("hey", nftOwned);
-    } else {
-      console.log("error====");
+    } catch (error) {
+      console.log("error=", error);
     }
   };
 
-  const mintNFT = async () => {
+  const mintNFT2 = async () => {
     const formData = new FormData();
     formData.append("file", fileImg);
     const resFile = await axios({
@@ -87,16 +111,7 @@ export const UberProvider = ({ children }) => {
       description: "abc",
       image: ImgHash,
     };
-    // const resFile2 = await axios({
-    //   method: "post",
-    //   url: "https://api.pinata.cloud/pinning/pinJSONToIPFS",
-    //   data: tokenUri,
-    //   headers: {
-    //     pinata_api_key: `${PINATA_API_KEY}`,
-    //     pinata_secret_api_key: `${PINATA_API_SECRET}`,
-    //     "Content-Type": "multipart/form-data",
-    //   },
-    // });
+
     let url = "https://api.pinata.cloud/pinning/pinJSONToIPFS";
     let res = await axios.post(url, tokenUri, {
       headers: {
@@ -105,15 +120,45 @@ export const UberProvider = ({ children }) => {
       },
     });
     console.log("hey khizer===", res);
+  };
+  const mintNFT = async () => {};
 
-    // console.log("hey khizer====", resFile2);
+  const getLoggedInUser = async () => {
+    try {
+      let user = await axios.get(
+        `${GET_USER}/0xf9f40d2f56a655ed5e5b20b1f1ae806a79231cd4`
+      );
+      const data = user.data;
+      // let data = JSON.stringify(user.data);
+      // let email = data.split("\n");
+      // email = email[0].split(":");
+      // email = email[1].split(`\"`);
+      // console.log("hey", email[1]);
+      if (data.email) {
+        setRegisteredAlready(true);
+        setUserInfo(user.data);
+      } else {
+        setRegisteredAlready(false);
+      }
+    } catch (error) {
+      console.log("Error===", error);
+    }
   };
 
-  useEffect(() => {
-    if (fileImg) {
-      mintNFT();
+  const submitRegisterForm = async (username, email) => {
+    try {
+      let data = {
+        username: username,
+        email: email,
+        wallet: account.toLocaleLowerCase(),
+      };
+
+      let res = await axios.post(`${REGISTER_USER}`, data);
+      setUserInfo(data);
+    } catch (error) {
+      console.log("error====", error);
     }
-  }, [fileImg]);
+  };
 
   useEffect(() => {
     const check = async () => {
@@ -133,6 +178,12 @@ export const UberProvider = ({ children }) => {
     }
   }, [account, merkleTree, contract]);
 
+  useEffect(() => {
+    if (account.length > 0 && isValidOrNot === true) {
+      getLoggedInUser();
+    }
+  }, [account, isValidOrNot]);
+
   //Restrict network
 
   // useEffect(() => {
@@ -150,8 +201,11 @@ export const UberProvider = ({ children }) => {
         connectMetamask,
         getBalance,
         setFileImg,
+        submitRegisterForm,
         isValidOrNot,
         hasNFT,
+        loading,
+        registeredAlready,
       }}
     >
       {children}

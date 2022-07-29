@@ -1,6 +1,30 @@
-import React from 'react';
+import React, { useContext, useEffect } from "react";
+import { UberContext } from "../../context/index";
+import Loader from "../Loader";
+import { useNavigate } from "react-router";
+const WalletScreen = () => {
+  const navigate = useNavigate();
+  const {
+    pickup,
+    setPickup,
+    account,
+    connectMetamask,
+    getBalance,
+    setFileImg,
+    isValidOrNot,
+    hasNFT,
+    loading,
+    registeredAlready,
+  } = useContext(UberContext);
 
-const Mianhome = () => {
+  useEffect(() => {
+    if (registeredAlready === false) {
+      navigate("/Login");
+    } else if (registeredAlready === true) {
+      console.log("hey page");
+    }
+  }, [registeredAlready]);
+
   return (
     <div>
       <div className="main-page">
@@ -8,7 +32,7 @@ const Mianhome = () => {
           <div className="row padding">
             <div className="col-lg-12">
               <img
-                style={{ float: 'left' }}
+                style={{ float: "left" }}
                 src="assets/images/Logo.png"
                 alt="logo"
               />
@@ -23,8 +47,16 @@ const Mianhome = () => {
                   <div className="page-content"></div>
                 </div>
                 {/* </GlitchClip> */}
-                <button className="establish-connection">
+                <button
+                  className="establish-connection"
+                  onClick={connectMetamask}
+                >
                   Establish Connection
+                  {loading && (
+                    <i>
+                      <Loader />
+                    </i>
+                  )}
                 </button>
               </div>
             </div>
@@ -42,4 +74,4 @@ const Mianhome = () => {
   );
 };
 
-export default Mianhome;
+export default WalletScreen;
