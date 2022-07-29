@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import { useContext, useEffect } from "react";
 import { UberContext } from "../../context/index";
@@ -14,8 +15,7 @@ const Home = () => {
     isValidOrNot,
     hasNFT,
   } = useContext(UberContext);
-
-  console.log("hey khizer=====", isValidOrNot, hasNFT);
+  const navigate = useNavigate();
   return (
     <div>
       <header className="App-header">
