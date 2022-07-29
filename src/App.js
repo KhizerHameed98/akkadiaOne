@@ -11,6 +11,7 @@ import Loading from './Components/Loading';
 import { Toaster } from 'react-hot-toast';
 import Userhome from './Components/Userhome';
 import EntanglementRequest from './Components/EntanglementRequest';
+import EntanglementProgress from './Components/EntanglementProgress';
 
 function App() {
   return (
@@ -32,11 +33,15 @@ function App() {
           ></Route>
           <Route path="/user" element={<User />}></Route>
           <Route path="/loading" element={<Loading />}></Route>
-          <Route path="/userhome" element={<Userhome />}></Route>
+          {/* <Route path="/userhome" element={<Userhome />}></Route> */}
           <Route
             path="/entanglement-request"
             element={<EntanglementRequest />}
           ></Route>
+          {/* <Route
+            path="/entanglement-progress"
+            element={<EntanglementProgress />}
+          ></Route> */}
         </Routes>
       </Router>
     </div>

@@ -4,14 +4,10 @@ const index = () => {
   return (
     <div className="launching-main-page-forth">
       <div className="container-fluid">
-        <div className="row padding">
-          <div className="col-lg-12">
+        <div class="row padding">
+          <div class="col-lg-12">
             <div className="d-flex flex-row align-items-center">
-              <img
-                src="assets/images/Logo.png"
-                alt="logo"
-                style={{ float: 'left' }}
-              />
+              <img src="assets/images/Logo.png" alt="logo" />
               <span>Username</span>
             </div>
           </div>

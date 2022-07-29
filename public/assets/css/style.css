@@ -441,9 +441,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 60px 34px;
+  background-color: #000000;
+  height: 100vh;
 }
 
-.launching-main-page-fifth::after {
+/* .launching-main-page-fifth::after {
   content: '';
   position: absolute;
   left: 0;
@@ -452,7 +454,7 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.1);
-}
+} */
 
 .launching-main-page-fifth span {
   color: white;
@@ -492,9 +494,9 @@ body {
   font-family: 'Aldrich';
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 32px;
-  padding-top: 50px;
+  padding-top: 20px;
 }
 
 .scroll {
@@ -511,10 +513,10 @@ body {
   font-family: 'Aldrich';
   font-style: normal;
   font-weight: 400;
-  font-size: 54px;
+  font-size: 24px;
   line-height: 32px;
   color: white;
-  padding-top: 40px;
+  padding-top: 24px;
 }
 
 .formating-text {
