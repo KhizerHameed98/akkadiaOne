@@ -13,6 +13,7 @@ import Userhome from './Components/Userhome';
 import EntanglementRequest from './Components/EntanglementRequest';
 import EntanglementProgress from './Components/EntanglementProgress';
 import EntanglementCompleted from './Components/EntanglementCompleted';
+import EntanglementReceiver from './Components/EntanglementReceiver';
 
 function App() {
   return (
@@ -46,6 +47,10 @@ function App() {
           <Route
             path="/entanglement-completed"
             element={<EntanglementCompleted />}
+          ></Route>
+          <Route
+            path="/entanglement-receiver"
+            element={<EntanglementReceiver />}
           ></Route>
         </Routes>
       </Router>

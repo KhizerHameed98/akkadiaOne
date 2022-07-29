@@ -1,7 +1,7 @@
-import React, { useContext, useEffect } from "react";
-import { UberContext } from "../../context/index";
-import Loader from "../Loader";
-import { useNavigate } from "react-router";
+import React, { useContext, useEffect } from 'react';
+import { UberContext } from '../../context/index';
+import Loader from '../Loader';
+import { useNavigate } from 'react-router';
 const WalletScreen = () => {
   const navigate = useNavigate();
   const {
@@ -19,9 +19,9 @@ const WalletScreen = () => {
 
   useEffect(() => {
     if (registeredAlready === false) {
-      navigate("/Login");
+      navigate('/Login');
     } else if (registeredAlready === true) {
-      console.log("hey page");
+      console.log('hey page');
     }
   }, [registeredAlready]);
 
@@ -32,7 +32,7 @@ const WalletScreen = () => {
           <div className="row padding">
             <div className="col-lg-12">
               <img
-                style={{ float: "left" }}
+                style={{ float: 'left' }}
                 src="assets/images/Logo.png"
                 alt="logo"
               />
@@ -43,7 +43,11 @@ const WalletScreen = () => {
               <div className="col-lg-12 main-content">
                 {/* <GlitchClip onHover={true}> */}
                 <div className="main-content">
-                  <img src="assets/images/MOSHED.png" alt="MOSHED" />
+                  <img
+                    src="assets/images/MOSHED.png"
+                    alt="MOSHED"
+                    height="300"
+                  />
                   <div className="page-content"></div>
                 </div>
                 {/* </GlitchClip> */}
