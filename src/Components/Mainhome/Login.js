@@ -5,10 +5,6 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
 
-  const submitForm = () => {
-    console.log("hey khizer===", username, email);
-  };
-
   return (
     <div>
       <div className="main-page">

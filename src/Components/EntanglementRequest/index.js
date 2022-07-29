@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const index = () => {
   return (
@@ -10,7 +10,7 @@ const index = () => {
               <img
                 src="assets/images/Logo.png"
                 alt="logo"
-                style={{ float: 'left' }}
+                style={{ float: "left" }}
               />
               <span>Username</span>
             </div>
@@ -34,8 +34,8 @@ const index = () => {
             </div>
           </div>
         </div>
-        <div class="row">
-          <marquee class="scroll" behavior="scroll" direction="right">
+        <div className="row">
+          <marquee className="scroll" behavior="scroll" direction="right">
             XV Unit Detection: Failed **REPORT IMMEDIATELY TO THE ODD OR THE
             NEAREST XENO VECTOR STATION FOR SERVICE** **LEGACY INTERFACE AND
             SERVICES ACTIVATED**

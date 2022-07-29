@@ -125,19 +125,11 @@ export const UberProvider = ({ children }) => {
 
   const getLoggedInUser = async () => {
     try {
-      let user = await axios.get(
-        `${GET_USER}/${account}`
-      );
+      let user = await axios.get(`${GET_USER}/${account}`);
       const data = user.data;
-      // console.log("hey =====", typeof data);
-      // let data = JSON.stringify(user.data);
-      // let email = data.split("\n");
-      // email = email[0].split(":");
-      // email = email[1].split(`\"`);
-      // console.log("hey", email[1]);
       if (data.email) {
+        setUserInfo(data);
         setRegisteredAlready(true);
-        setUserInfo(user.data);
       } else {
         setRegisteredAlready(false);
       }
@@ -155,6 +147,7 @@ export const UberProvider = ({ children }) => {
       };
 
       let res = await axios.post(`${REGISTER_USER}`, data);
+      setRegisteredAlready(true);
       setUserInfo(data);
     } catch (error) {
       console.log("error====", error);
@@ -207,6 +200,7 @@ export const UberProvider = ({ children }) => {
         hasNFT,
         loading,
         registeredAlready,
+        userInfo,
       }}
     >
       {children}

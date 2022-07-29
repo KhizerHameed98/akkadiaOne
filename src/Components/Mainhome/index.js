@@ -21,7 +21,7 @@ const WalletScreen = () => {
     if (registeredAlready === false) {
       navigate("/Login");
     } else if (registeredAlready === true) {
-      console.log("hey page");
+      navigate("/user");
     }
   }, [registeredAlready]);
 

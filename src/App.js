@@ -1,16 +1,17 @@
-import './App.css';
+import "./App.css";
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Components/Home';
-import Mianhome from './Components/Mainhome';
-import browserRoute from './Routes/browserRoutes';
-import PrivateRouteLogin from './Components/HOC/PrivateRouteLogin';
-import Login from './Components/Authentication.js/Login';
-import User from './Components/Welecomeuser/User';
-import Loading from './Components/Loading';
-import { Toaster } from 'react-hot-toast';
-import Userhome from './Components/Userhome';
-import EntanglementRequest from './Components/EntanglementRequest';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Components/Home";
+import Mianhome from "./Components/Mainhome";
+import browserRoute from "./Routes/browserRoutes";
+import PrivateRouteLogin from "./Components/HOC/PrivateRouteLogin";
+import Login from "./Components/Authentication.js/Login";
+import User from "./Components/Welecomeuser/User";
+import Loading from "./Components/Loading";
+import { Toaster } from "react-hot-toast";
+import Userhome from "./Components/Userhome";
+import EntanglementRequest from "./Components/EntanglementRequest";
+import PrivateRouteLoader from "./Components/HOC/PrivateRouteLoader";
 
 function App() {
   return (
@@ -30,9 +31,30 @@ function App() {
               </PrivateRouteLogin>
             }
           ></Route>
-          <Route path="/user" element={<User />}></Route>
-          <Route path="/loading" element={<Loading />}></Route>
-          <Route path="/userhome" element={<Userhome />}></Route>
+          <Route
+            path="/user"
+            element={
+              <PrivateRouteLoader redirectLink={browserRoute.HOME}>
+                <User />
+              </PrivateRouteLoader>
+            }
+          ></Route>
+          <Route
+            path="/loading"
+            element={
+              <PrivateRouteLoader redirectLink={browserRoute.HOME}>
+                <Loading />
+              </PrivateRouteLoader>
+            }
+          ></Route>
+          <Route
+            path="/userhome"
+            element={
+              <PrivateRouteLoader redirectLink={browserRoute.HOME}>
+                <Userhome />
+              </PrivateRouteLoader>
+            }
+          ></Route>
           <Route
             path="/entanglement-request"
             element={<EntanglementRequest />}
