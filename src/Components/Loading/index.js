@@ -1,4 +1,5 @@
 import React from 'react';
+import ProgressBar from '@ramonak/react-progress-bar';
 
 function move() {
   var i = 0;
@@ -27,11 +28,14 @@ const loading = () => {
           <div class="container-fluid">
             <div class="row padding">
               <div class="col-lg-12">
-                <img
-                  style={{ float: 'left' }}
-                  src="assets/images/Logo.png"
-                  alt="logo"
-                />
+                <div className="d-flex flex-row align-items-center">
+                  <img
+                    style={{ float: 'left' }}
+                    src="assets/images/Logo.png"
+                    alt="logo"
+                  />
+                  <span>Username</span>
+                </div>
               </div>
             </div>
             <div class="container">
@@ -52,7 +56,15 @@ const loading = () => {
                       </div>
                     </div>
                     <div id="myProgress">
-                      <div id="myBar"></div>
+                      <ProgressBar
+                        completed={80}
+                        bgColor="#ffffff"
+                        height="10px"
+                        isLabelVisible={false}
+                        baseBgColor="#3A3A3A"
+                        labelColor="#e8090"
+                        maxCompleted={100}
+                      />
                     </div>
                   </div>
                 </div>

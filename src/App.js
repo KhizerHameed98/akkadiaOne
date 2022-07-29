@@ -9,6 +9,7 @@ import Login from './Components/Authentication.js/Login';
 import Loading from './Components/Loading';
 import User from './Components/Welecomeuser/User';
 import Userhome from './Components/Userhome';
+import EntanglementRequest from './Components/EntanglementRequest';
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
           <Route path="/user" element={<User />}></Route>
           <Route path="/loading" element={<Loading />}></Route>
           <Route path="/userhome" element={<Userhome />}></Route>
+          <Route
+            path="/entanglement-request"
+            element={<EntanglementRequest />}
+          ></Route>
         </Routes>
       </Router>
     </div>
