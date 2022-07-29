@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UberContext } from "../../context";
+import Loader from "../Loader";
 
-const index = () => {
+const Index = () => {
+  const { userInfo, mintNFT, loading } = useContext(UberContext);
+
+  const nftMint = async () => {
+    let c = await mintNFT();
+  };
+
   return (
     <div className="launching-main-page-forth">
       <div className="container-fluid">
@@ -12,7 +20,7 @@ const index = () => {
                 alt="logo"
                 style={{ float: "left" }}
               />
-              <span>Username</span>
+              <span>{userInfo.username}</span>
             </div>
           </div>
         </div>
@@ -27,7 +35,10 @@ const index = () => {
                       YOU HAVE AN INCOMING TRANSMISSION FROM AN UNKNOWN SENDER
                       WOULD YOU LIKE TO ESTABLISH Q.E. SEQUENCE?
                     </h3>
-                    <button className="begin-sequence">BEGIN SEQUENCE</button>
+                    <button className="begin-sequence" onClick={nftMint}>
+                      BEGIN SEQUENCE
+                      {loading && <Loader />}
+                    </button>
                   </div>
                 </div>
               </div>
@@ -55,4 +66,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

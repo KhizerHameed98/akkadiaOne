@@ -61,7 +61,8 @@ export const UberProvider = ({ children }) => {
   const getNft = async () => {
     let result = await contract.walletOfOwner(account);
     let tokeUri = await contract.tokenURI(result.toString());
-    console.log("hey", tokeUri);
+    // console.log("hey", tokeUri);
+    return tokeUri;
   };
 
   const checkIsValid = async () => {
@@ -80,7 +81,7 @@ export const UberProvider = ({ children }) => {
         setHasNFT(nftOwned);
         setLoading(false);
         if (nftOwned) {
-          getNft();
+          // getNft();
         }
       } else {
         setLoading(false);
@@ -121,7 +122,18 @@ export const UberProvider = ({ children }) => {
     });
     console.log("hey khizer===", res);
   };
-  const mintNFT = async () => {};
+  const mintNFT = async () => {
+    try {
+      setLoading(true);
+      const signer = provider.getSigner();
+      const contractWithSigner = contract.connect(signer);
+      let mintingTx = await contractWithSigner.PublicMint(proof);
+      await mintingTx.wait();
+      setLoading(true);
+    } catch (error) {
+      toast.error(error.message || error);
+    }
+  };
 
   const getLoggedInUser = async () => {
     try {
@@ -201,6 +213,8 @@ export const UberProvider = ({ children }) => {
         loading,
         registeredAlready,
         userInfo,
+        getNft,
+        mintNFT,
       }}
     >
       {children}

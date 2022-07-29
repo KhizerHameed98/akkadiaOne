@@ -12,6 +12,7 @@ import { Toaster } from "react-hot-toast";
 import Userhome from "./Components/Userhome";
 import EntanglementRequest from "./Components/EntanglementRequest";
 import PrivateRouteLoader from "./Components/HOC/PrivateRouteLoader";
+import PrivateRouteSequence from "./Components/HOC/PrivateRouteSequence";
 
 function App() {
   return (
@@ -57,7 +58,11 @@ function App() {
           ></Route>
           <Route
             path="/entanglement-request"
-            element={<EntanglementRequest />}
+            element={
+              <PrivateRouteSequence redirectLink={browserRoute.HOME}>
+                <EntanglementRequest />
+              </PrivateRouteSequence>
+            }
           ></Route>
         </Routes>
       </Router>

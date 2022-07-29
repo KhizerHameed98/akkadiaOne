@@ -12,11 +12,11 @@ const Login = () => {
     return /\S+@\S+\.\S+/.test(email);
   }
   const submitForm = async () => {
-    if (!isValidEmail(email)) {
-      toast.error("Invalid Email");
+    if (!isValidEmail(email) || !username) {
+      toast.error("Invalid Email or Username");
     } else {
       await submitRegisterForm(username, email);
-      navigate("/loading");
+      navigate("/user");
     }
   };
 
@@ -60,7 +60,11 @@ const Login = () => {
                     }}
                   />
                 </div>
-                <button className="establish-connection" onClick={submitForm}>
+                <button
+                  class="establish-connection"
+                  style={{ cursor: "pointer" }}
+                  onClick={submitForm}
+                >
                   Gain Access
                 </button>
               </div>

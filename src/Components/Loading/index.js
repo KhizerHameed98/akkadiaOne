@@ -1,8 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { UberContext } from "../../context";
+import { useNavigate } from "react-router";
 
 const Loading = () => {
+  const { userInfo, hasNFT, getNft } = useContext(UberContext);
+  const navigate = useNavigate();
   function move() {
     var i = 0;
     if (i == 0) {
@@ -21,10 +24,17 @@ const Loading = () => {
       }
     }
   }
-  const { userInfo } = useContext(UberContext);
+
+  useEffect(() => {
+    if (hasNFT === false) {
+      setTimeout(() => {
+        navigate("/entanglement-request");
+      }, 5000);
+    }
+  }, [hasNFT]);
   return (
     <div>
-      <div onclick={move}>
+      <div onClick={move}>
         <div className="launching-main-page-third">
           <div className="container-fluid">
             <div className="row padding">

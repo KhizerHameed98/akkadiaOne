@@ -11,6 +11,7 @@ export const PINATA_API_SECRET =
   "4ccab7b55a6c474070fc6c36160154bb162bb58539af6370ca8349bef2f25ce1";
 
 export const PINATA_GET_URL = "https://gateway.pinata.cloud/ipfs";
+export const IPFS_URL = "https://dev-qtcp-api.akkadia.one/token";
 // export const params = [
 //   {
 //     chainId: "0x89",
