@@ -5,14 +5,18 @@ import Home from "./Components/Home";
 import Mianhome from "./Components/Mainhome";
 import browserRoute from "./Routes/browserRoutes";
 import PrivateRouteLogin from "./Components/HOC/PrivateRouteLogin";
+import PrivateRouteLoader from "./Components/HOC/PrivateRouteLoader";
+import PrivateRouteSequence from "./Components/HOC/PrivateRouteSequence";
+import PrivateRouteSequenceAccess from "./Components/HOC/PrivateRouteSequenceAccess";
 import Login from "./Components/Authentication.js/Login";
 import User from "./Components/Welecomeuser/User";
 import Loading from "./Components/Loading";
 import { Toaster } from "react-hot-toast";
 import Userhome from "./Components/Userhome";
 import EntanglementRequest from "./Components/EntanglementRequest";
-import PrivateRouteLoader from "./Components/HOC/PrivateRouteLoader";
-import PrivateRouteSequence from "./Components/HOC/PrivateRouteSequence";
+import EntanglementProgress from "./Components/EntanglementProgress";
+import EntanglementCompleted from "./Components/EntanglementCompleted";
+import EntanglementReceiver from "./Components/EntanglementReceiver";
 
 function App() {
   return (
@@ -56,12 +60,37 @@ function App() {
               </PrivateRouteLoader>
             }
           ></Route>
+
           <Route
             path="/entanglement-request"
             element={
               <PrivateRouteSequence redirectLink={browserRoute.HOME}>
                 <EntanglementRequest />
               </PrivateRouteSequence>
+            }
+          ></Route>
+          <Route
+            path="/entanglement-progress"
+            element={
+              <PrivateRouteSequenceAccess redirectLink={browserRoute.HOME}>
+                <EntanglementProgress />
+              </PrivateRouteSequenceAccess>
+            }
+          ></Route>
+          <Route
+            path="/entanglement-completed"
+            element={
+              <PrivateRouteSequenceAccess redirectLink={browserRoute.HOME}>
+                <EntanglementCompleted />
+              </PrivateRouteSequenceAccess>
+            }
+          ></Route>
+          <Route
+            path="/entanglement-receiver"
+            element={
+              <PrivateRouteSequenceAccess redirectLink={browserRoute.HOME}>
+                <EntanglementReceiver />
+              </PrivateRouteSequenceAccess>
             }
           ></Route>
         </Routes>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UberContext } from "../../context/index";
 import Loader from "../Loader";
 import { useNavigate } from "react-router";
@@ -15,8 +15,9 @@ const WalletScreen = () => {
     hasNFT,
     loading,
     registeredAlready,
+    allowed,
   } = useContext(UberContext);
-
+  const [notAllowed, setNotAllowed] = useState(false);
   useEffect(() => {
     if (registeredAlready === false) {
       navigate("/Login");
@@ -24,6 +25,12 @@ const WalletScreen = () => {
       navigate("/user");
     }
   }, [registeredAlready]);
+
+  useEffect(() => {
+    if (allowed === false) {
+      setNotAllowed(true);
+    }
+  }, [allowed]);
 
   return (
     <div>
@@ -43,21 +50,39 @@ const WalletScreen = () => {
               <div className="col-lg-12 main-content">
                 {/* <GlitchClip onHover={true}> */}
                 <div className="main-content">
-                  <img src="assets/images/MOSHED.png" alt="MOSHED" />
+                  <img
+                    src="assets/images/MOSHED.png"
+                    alt="MOSHED"
+                    height="300"
+                  />
                   <div className="page-content"></div>
                 </div>
                 {/* </GlitchClip> */}
-                <button
-                  className="establish-connection"
-                  onClick={connectMetamask}
-                >
-                  Establish Connection
-                  {loading && (
-                    <i>
-                      <Loader />
-                    </i>
-                  )}
-                </button>
+
+                {notAllowed ? (
+                  <>
+                    <button
+                      className="establish-connection"
+                      // onClick={connectMetamask}
+                      style={{ cursor: "not-allowed", backgroundColor: "red" }}
+                      disabled={true}
+                    >
+                      Access Denied
+                    </button>
+                  </>
+                ) : (
+                  <button
+                    className="establish-connection"
+                    onClick={connectMetamask}
+                  >
+                    <>Establish Connection</>
+                    {loading && (
+                      <i>
+                        <Loader />
+                      </i>
+                    )}
+                  </button>
+                )}
               </div>
             </div>
           </div>

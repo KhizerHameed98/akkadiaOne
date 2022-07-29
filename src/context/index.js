@@ -12,6 +12,7 @@ import addresses from "./addresses.json";
 import { merkledrop, merkleValue } from "./merkledrop";
 import axios from "axios";
 import { GET_USER, REGISTER_USER } from "../Routes/serverRoutes";
+import { IPFS_URL } from "./config";
 import toast from "react-hot-toast";
 export const UberContext = createContext();
 export const UberProvider = ({ children }) => {
@@ -27,6 +28,8 @@ export const UberProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState({});
   const [loading, setLoading] = useState(false);
   const [registeredAlready, setRegisteredAlready] = useState();
+  const [allowed, setAllowed] = useState();
+  const [tokenUri, setTokenUri] = useState();
 
   const connectMetamask = async () => {
     try {
@@ -54,15 +57,15 @@ export const UberProvider = ({ children }) => {
   const getBalance = async () => {
     let balance = await provider.getBalance(account);
     const balanceInEther = ethers.utils.formatEther(balance);
-    // console.log("hey khizer====", await provider.getNetwork());
-    console.log("hey khizer====", balanceInEther);
   };
 
   const getNft = async () => {
     let result = await contract.walletOfOwner(account);
-    let tokeUri = await contract.tokenURI(result.toString());
-    // console.log("hey", tokeUri);
-    return tokeUri;
+    // let tokeUri = await contract.tokenURI(result.toString());
+    let data = await axios.get(`${IPFS_URL}/${result.toString()}`);
+
+    setTokenUri(data.data);
+    // return tokeUri;
   };
 
   const checkIsValid = async () => {
@@ -71,6 +74,7 @@ export const UberProvider = ({ children }) => {
         (address) => address.toLocaleLowerCase() === account.toLocaleLowerCase()
       );
       if (index >= 0) {
+        setAllowed(true);
         let prof = merkleTree[index];
         setProof(merkleTree[index]);
         let checkLeaf = await contract.checkleaf(account);
@@ -81,11 +85,13 @@ export const UberProvider = ({ children }) => {
         setHasNFT(nftOwned);
         setLoading(false);
         if (nftOwned) {
-          // getNft();
+          getNft();
         }
       } else {
+        setAllowed(false);
+
         setLoading(false);
-        toast.error("You are not a whitelisted user");
+        // toast.error("You are not a whitelisted user");
       }
     } catch (error) {
       console.log("error=", error);
@@ -120,7 +126,6 @@ export const UberProvider = ({ children }) => {
         pinata_secret_api_key: PINATA_API_SECRET,
       },
     });
-    console.log("hey khizer===", res);
   };
   const mintNFT = async () => {
     try {
@@ -129,8 +134,11 @@ export const UberProvider = ({ children }) => {
       const contractWithSigner = contract.connect(signer);
       let mintingTx = await contractWithSigner.PublicMint(proof);
       await mintingTx.wait();
-      setLoading(true);
+      await getNft();
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
+
       toast.error(error.message || error);
     }
   };
@@ -215,6 +223,8 @@ export const UberProvider = ({ children }) => {
         userInfo,
         getNft,
         mintNFT,
+        allowed,
+        tokenUri,
       }}
     >
       {children}

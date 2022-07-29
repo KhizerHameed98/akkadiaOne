@@ -30,6 +30,10 @@ const Loading = () => {
       setTimeout(() => {
         navigate("/entanglement-request");
       }, 5000);
+    } else {
+      setTimeout(() => {
+        navigate("/entanglement-progress");
+      }, 5000);
     }
   }, [hasNFT]);
   return (

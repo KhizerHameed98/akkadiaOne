@@ -1,25 +1,23 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router";
 import { UberContext } from "../../context";
 import Loader from "../Loader";
 
 const Index = () => {
   const { userInfo, mintNFT, loading } = useContext(UberContext);
-
+  const navigate = useNavigate();
   const nftMint = async () => {
     let c = await mintNFT();
+    navigate("/entanglement-progress");
   };
 
   return (
     <div className="launching-main-page-forth">
       <div className="container-fluid">
-        <div className="row padding">
-          <div className="col-lg-12">
+        <div class="row padding">
+          <div class="col-lg-12">
             <div className="d-flex flex-row align-items-center">
-              <img
-                src="assets/images/Logo.png"
-                alt="logo"
-                style={{ float: "left" }}
-              />
+              <img src="assets/images/Logo.png" alt="logo" />
               <span>{userInfo.username}</span>
             </div>
           </div>
