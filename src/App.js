@@ -39,9 +39,9 @@ function App() {
           <Route
             path="/user"
             element={
-              // <PrivateRouteLoader redirectLink={browserRoute.HOME}>
-              <User />
-              // </PrivateRouteLoader>
+              <PrivateRouteLoader redirectLink={browserRoute.HOME}>
+                <User />
+              </PrivateRouteLoader>
             }
           ></Route>
           <Route
@@ -64,17 +64,17 @@ function App() {
           <Route
             path="/entanglement-request"
             element={
-              // <PrivateRouteSequence redirectLink={browserRoute.HOME}>
-              <EntanglementRequest />
-              // </PrivateRouteSequence>
+              <PrivateRouteSequence redirectLink={browserRoute.HOME}>
+                <EntanglementRequest />
+              </PrivateRouteSequence>
             }
           ></Route>
           <Route
             path="/entanglement-progress"
             element={
-              // <PrivateRouteSequenceAccess redirectLink={browserRoute.HOME}>
-              <EntanglementProgress />
-              // </PrivateRouteSequenceAccess>
+              <PrivateRouteSequenceAccess redirectLink={browserRoute.HOME}>
+                <EntanglementProgress />
+              </PrivateRouteSequenceAccess>
             }
           ></Route>
           <Route
