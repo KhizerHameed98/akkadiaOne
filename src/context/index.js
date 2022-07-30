@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createContext } from "react";
 import { ethers } from "ethers";
 import {
+  chainId,
   contractAddress,
   params,
   PINATA_API_KEY,
@@ -36,20 +37,30 @@ export const UberProvider = ({ children }) => {
       setLoading(true);
       if (window.ethereum !== "undefined") {
         let providerTemp = new ethers.providers.Web3Provider(window.ethereum);
-        setProvider(providerTemp);
-        let accounts = await providerTemp.send("eth_requestAccounts", []);
-        setAccount(accounts[0]);
-        let cont = await new ethers.Contract(
-          contractAddress,
-          abi,
-          providerTemp
-        );
+        const network = await providerTemp.getNetwork();
+        if (network.chainId === chainId) {
+          setProvider(providerTemp);
+          let accounts = await providerTemp.send("eth_requestAccounts", []);
+          setAccount(accounts[0]);
+          let cont = await new ethers.Contract(
+            contractAddress,
+            abi,
+            providerTemp
+          );
 
-        setContract(cont);
+          setContract(cont);
+        } else {
+          setLoading(false);
+          toast.error("Please Select Rinkeby Network");
+        }
       } else {
+        setLoading(false);
+
         toast.error("Please install metamask");
       }
     } catch (error) {
+      setLoading(false);
+
       toast.error(error.message);
     }
   };

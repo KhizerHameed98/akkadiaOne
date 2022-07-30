@@ -1,12 +1,12 @@
-import React, { useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router';
-import { UberContext } from '../../context';
+import React, { useContext, useEffect } from "react";
+import { useNavigate } from "react-router";
+import { UberContext } from "../../context";
 
 const User = () => {
   const navigate = useNavigate();
   useEffect(() => {
     setTimeout(() => {
-      // navigate("/loading");
+      navigate("/loading");
     }, 5000);
   }, []);
   const { userInfo } = useContext(UberContext);
@@ -26,7 +26,7 @@ const User = () => {
           <div className="row padding">
             <div className="col-lg-12">
               <img
-                style={{ float: 'left' }}
+                style={{ float: "left" }}
                 src="assets/images/Logo.png"
                 alt="logo"
               />

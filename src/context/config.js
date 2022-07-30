@@ -1,11 +1,3 @@
-export const chainId = 137;
-export const rpcUrls = "https://rpc-mainnet.maticvigil.com/";
-export const nativeCurrency = {
-  name: "MATIC",
-  symbol: "MATIC",
-  decimals: 18,
-};
-
 export const PINATA_API_KEY = "6010a28a84d3f899c1b9";
 export const PINATA_API_SECRET =
   "4ccab7b55a6c474070fc6c36160154bb162bb58539af6370ca8349bef2f25ce1";
@@ -25,6 +17,7 @@ export const IPFS_URL = "https://dev-qtcp-api.akkadia.one/token";
 //     blockExplorerUrls: ["https://polygonscan.com/"],
 //   },
 // ];
+export const chainId = 4;
 export const params = [
   {
     chainId: 4,
