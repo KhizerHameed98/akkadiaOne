@@ -8,7 +8,7 @@ const Index = () => {
   useEffect(() => {
     setTimeout(() => {
       navigate("/entanglement-receiver");
-    }, 5000);
+    }, 15000);
   }, []);
   return (
     <>

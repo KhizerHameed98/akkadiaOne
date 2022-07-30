@@ -1,11 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { UberContext } from "../../context";
+import ReactDOM from "react-dom";
 
 const Index = () => {
   const { userInfo, tokenUri } = useContext(UberContext);
+  // const [open, setOpen] = useState(true);
+  const modalRoot = document.getElementById("modal-root");
+
+  // const Modal = (props) => {
+  //   return ReactDOM.createPortal(
+  //     <div className="overlay">{props.children}</div>,
+  //     modalRoot
+  //   );
+  // };
   return (
     <>
       <div className="launching-main-page-fifth">
+        {/* {open && <Modal in={open}>Click anywhere to close</Modal>} */}
         <div className="container-fluid">
           <div className="row padding">
             <div className="col-lg-12">

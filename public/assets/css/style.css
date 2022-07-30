@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Aldrich&display=swap");
 
 .main-page {
   background-color: #000000;
@@ -20,7 +20,7 @@
   border: 3px solid #ff0000;
   border-radius: 50px;
   color: white;
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   cursor: pointer;
   font-weight: 400;
@@ -41,7 +41,7 @@
 
 .scroll {
   color: #ff0000;
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -113,7 +113,7 @@
 
 .scroll {
   color: #ff0000;
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 21px;
@@ -135,7 +135,7 @@
 
 .block h2 {
   color: white;
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -302,7 +302,7 @@ body {
 }
 .launching-main-page-third span {
   color: white;
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -312,7 +312,7 @@ body {
 
 .scroll {
   color: #ff0000;
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 21px;
@@ -343,7 +343,7 @@ body {
 
 .launching-main-page-forth span {
   color: white;
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -387,7 +387,7 @@ body {
 }
 
 .inner-text-block h2 {
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -397,7 +397,7 @@ body {
 }
 
 .inner-text-block h3 {
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -410,7 +410,7 @@ body {
   background: #bc0000;
   border-radius: 50px;
   color: white;
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -426,7 +426,7 @@ body {
 
 .scroll {
   color: #ff0000;
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -465,7 +465,7 @@ body {
 
 .launching-main-page-fifth span {
   color: white;
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -487,7 +487,7 @@ body {
 
 .inner-image-block h2 {
   color: white;
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 48px;
@@ -497,7 +497,7 @@ body {
 
 .inner-image-block h3 {
   color: white;
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -507,7 +507,7 @@ body {
 
 .scroll {
   color: #ff0000;
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -516,7 +516,7 @@ body {
 }
 
 .launching-main-page-fifth p {
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -526,7 +526,7 @@ body {
 }
 
 .formating-text {
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 21px;
@@ -534,7 +534,7 @@ body {
 }
 
 .launching-main-page-sixth p {
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 21px;
@@ -550,8 +550,23 @@ body {
   background-position: 60px 34px;
 }
 
+.overlay {
+  position: fixed;
+  display: block;
+  /* align-items: center;
+  justify-content: center; */
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
 .launching-main-page-sixth::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -563,7 +578,7 @@ body {
 
 .launching-main-page-sixth span {
   color: white;
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -578,7 +593,7 @@ body {
   text-align: center;
   left: 553px;
   top: 42vh;
-  font-family: 'Aldrich';
+  font-family: "Aldrich";
   font-style: normal;
   font-weight: 400;
   font-size: 118px;
@@ -642,7 +657,7 @@ body {
   }
 
   .inner-text-block h3 {
-    font-family: 'Aldrich';
+    font-family: "Aldrich";
     font-style: normal;
     font-weight: 400;
     font-size: 26px;
@@ -652,7 +667,7 @@ body {
   }
 
   .inner-text-block h2 {
-    font-family: 'Aldrich';
+    font-family: "Aldrich";
     font-style: normal;
     font-weight: 400;
     font-size: 35px;
@@ -673,7 +688,7 @@ body {
 
 @media only screen and (max-width: 1199px) {
   .inner-text-block h2 {
-    font-family: 'Aldrich';
+    font-family: "Aldrich";
     font-style: normal;
     font-weight: 400;
     font-size: 41px;

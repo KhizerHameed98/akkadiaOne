@@ -1,10 +1,12 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { UberContext } from "../../context";
 import { useNavigate } from "react-router";
 
 const Loading = () => {
   const { userInfo, hasNFT, getNft } = useContext(UberContext);
+  const [counter, setCounter] = useState(0);
+
   const navigate = useNavigate();
   function move() {
     var i = 0;
@@ -25,17 +27,30 @@ const Loading = () => {
     }
   }
 
+  setTimeout(() => {
+    setCounter(counter + 10);
+  }, 1000);
   useEffect(() => {
-    if (hasNFT === false) {
-      setTimeout(() => {
+    if (counter >= 99 && hasNFT) {
+      if (hasNFT === false) {
         navigate("/entanglement-request");
-      }, 5000);
-    } else {
-      setTimeout(() => {
+      } else {
         navigate("/entanglement-progress");
-      }, 5000);
+      }
     }
-  }, [hasNFT]);
+  }, [counter, hasNFT]);
+
+  // useEffect(() => {
+  //   if (hasNFT === false) {
+  //     setTimeout(() => {
+  //       navigate("/entanglement-request");
+  //     }, 15000);
+  //   } else {
+  //     setTimeout(() => {
+  //       navigate("/entanglement-progress");
+  //     }, 15000);
+  //   }
+  // }, [hasNFT]);
   return (
     <div>
       <div onClick={move}>
@@ -72,7 +87,7 @@ const Loading = () => {
                     </div>
                     <div id="myProgress">
                       <ProgressBar
-                        completed={80}
+                        completed={counter}
                         bgColor="#ffffff"
                         height="10px"
                         isLabelVisible={false}
