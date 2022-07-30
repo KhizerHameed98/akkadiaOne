@@ -4,7 +4,7 @@ import { UberContext } from "../../context";
 import { useNavigate } from "react-router";
 
 const Loading = () => {
-  const { userInfo, hasNFT, getNft } = useContext(UberContext);
+  const { userInfo, hasNFT, getNft, tokenUri } = useContext(UberContext);
   const [counter, setCounter] = useState(0);
 
   const navigate = useNavigate();
@@ -31,10 +31,10 @@ const Loading = () => {
     setCounter(counter + 10);
   }, 1000);
   useEffect(() => {
-    if (counter >= 99 && hasNFT) {
+    if (counter >= 99) {
       if (hasNFT === false) {
         navigate("/entanglement-request");
-      } else {
+      } else if (hasNFT === true && tokenUri) {
         navigate("/entanglement-progress");
       }
     }
