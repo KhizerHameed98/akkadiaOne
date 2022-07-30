@@ -12,7 +12,7 @@ const Index = () => {
     navigate('/entanglement-progress');
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     // animatation
     const {
       abs,
