@@ -1,22 +1,22 @@
-import "./App.css";
+import './App.css';
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Components/Home";
-import Mianhome from "./Components/Mainhome";
-import browserRoute from "./Routes/browserRoutes";
-import PrivateRouteLogin from "./Components/HOC/PrivateRouteLogin";
-import PrivateRouteLoader from "./Components/HOC/PrivateRouteLoader";
-import PrivateRouteSequence from "./Components/HOC/PrivateRouteSequence";
-import PrivateRouteSequenceAccess from "./Components/HOC/PrivateRouteSequenceAccess";
-import Login from "./Components/Authentication.js/Login";
-import User from "./Components/Welecomeuser/User";
-import Loading from "./Components/Loading";
-import { Toaster } from "react-hot-toast";
-import Userhome from "./Components/Userhome";
-import EntanglementRequest from "./Components/EntanglementRequest";
-import EntanglementProgress from "./Components/EntanglementProgress";
-import EntanglementCompleted from "./Components/EntanglementCompleted";
-import EntanglementReceiver from "./Components/EntanglementReceiver";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Components/Home';
+import Mianhome from './Components/Mainhome';
+import browserRoute from './Routes/browserRoutes';
+import PrivateRouteLogin from './Components/HOC/PrivateRouteLogin';
+import PrivateRouteLoader from './Components/HOC/PrivateRouteLoader';
+import PrivateRouteSequence from './Components/HOC/PrivateRouteSequence';
+import PrivateRouteSequenceAccess from './Components/HOC/PrivateRouteSequenceAccess';
+import Login from './Components/Authentication.js/Login';
+import User from './Components/Welecomeuser/User';
+import Loading from './Components/Loading';
+import { Toaster } from 'react-hot-toast';
+import Userhome from './Components/Userhome';
+import EntanglementRequest from './Components/EntanglementRequest';
+import EntanglementProgress from './Components/EntanglementProgress';
+import EntanglementCompleted from './Components/EntanglementCompleted';
+import EntanglementReceiver from './Components/EntanglementReceiver';
 
 function App() {
   return (
@@ -39,9 +39,9 @@ function App() {
           <Route
             path="/user"
             element={
-              <PrivateRouteLoader redirectLink={browserRoute.HOME}>
-                <User />
-              </PrivateRouteLoader>
+              // <PrivateRouteLoader redirectLink={browserRoute.HOME}>
+              <User />
+              // </PrivateRouteLoader>
             }
           ></Route>
           <Route
@@ -64,17 +64,17 @@ function App() {
           <Route
             path="/entanglement-request"
             element={
-              <PrivateRouteSequence redirectLink={browserRoute.HOME}>
-                <EntanglementRequest />
-              </PrivateRouteSequence>
+              // <PrivateRouteSequence redirectLink={browserRoute.HOME}>
+              <EntanglementRequest />
+              // </PrivateRouteSequence>
             }
           ></Route>
           <Route
             path="/entanglement-progress"
             element={
-              <PrivateRouteSequenceAccess redirectLink={browserRoute.HOME}>
-                <EntanglementProgress />
-              </PrivateRouteSequenceAccess>
+              // <PrivateRouteSequenceAccess redirectLink={browserRoute.HOME}>
+              <EntanglementProgress />
+              // </PrivateRouteSequenceAccess>
             }
           ></Route>
           <Route

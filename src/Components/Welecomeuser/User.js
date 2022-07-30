@@ -1,27 +1,32 @@
-import React, { useContext, useEffect } from "react";
-import { useNavigate } from "react-router";
-import { UberContext } from "../../context";
+import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router';
+import { UberContext } from '../../context';
 
 const User = () => {
   const navigate = useNavigate();
   useEffect(() => {
     setTimeout(() => {
-      navigate("/loading");
+      // navigate("/loading");
     }, 5000);
   }, []);
   const { userInfo } = useContext(UberContext);
 
+  const image = Math.floor(Math.random() * 69);
+  console.log(image);
+
   return (
     <div>
       <div
-        style={{ backgroundImage: `url(assets/images/animapod.png)` }}
+        style={{
+          backgroundImage: `url(assets/images/AkkadiaBackgorunds/${image}.png)`,
+        }}
         className="launching-main-page"
       >
         <div className="container-fluid">
           <div className="row padding">
             <div className="col-lg-12">
               <img
-                style={{ float: "left" }}
+                style={{ float: 'left' }}
                 src="assets/images/Logo.png"
                 alt="logo"
               />

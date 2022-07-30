@@ -359,11 +359,18 @@ body {
   background-image: url(assets/images/animapod.png);
   width: 100%;
   background-repeat: no-repeat;
-  /* background-size: auto; */
   background-size: cover;
   background-position: 60px 34px;
   height: 100vh;
   background-color: #000000;
+}
+
+.launching-main-page-forth canvas {
+  z-index: 6;
+  width: 150vh;
+  height: 95vh;
+  margin: 5vh 30vh;
+  float: none;
 }
 
 .text-block {
