@@ -1,22 +1,58 @@
-import React, { useContext, useState } from "react";
-import { UberContext } from "../../context";
-import ReactDOM from "react-dom";
+import React, { useContext, useState, useEffect } from 'react';
+import { UberContext } from '../../context';
+import ReactDOM from 'react-dom';
+
+const modalRoot = document.getElementById('modal-root');
+
+const Modal = (props) => {
+  return ReactDOM.createPortal(
+    <div className="overlay">{props.children}</div>,
+    modalRoot
+  );
+};
 
 const Index = () => {
   const { userInfo, tokenUri } = useContext(UberContext);
-  // const [open, setOpen] = useState(true);
-  const modalRoot = document.getElementById("modal-root");
+  const [open, setOpen] = useState(false);
 
-  // const Modal = (props) => {
-  //   return ReactDOM.createPortal(
-  //     <div className="overlay">{props.children}</div>,
-  //     modalRoot
-  //   );
-  // };
+  useEffect(() => {
+    setTimeout(() => {
+      setOpen(true);
+    }, 6000);
+  }, []);
+
   return (
     <>
       <div className="launching-main-page-fifth">
-        {/* {open && <Modal in={open}>Click anywhere to close</Modal>} */}
+        {open && (
+          <Modal in={!open}>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '100vw',
+                height: '100vh',
+              }}
+            >
+              <p
+                style={{
+                  color: 'red',
+                  fontFamily: 'Aldrich',
+                  fontStyle: 'normal',
+                  fontWeight: '400',
+                  fontSize: '118px',
+                  lineHeight: '142px',
+                  textAlign: 'center',
+                }}
+              >
+                Connection
+                <br />
+                Lost
+              </p>
+            </div>
+          </Modal>
+        )}
         <div className="container-fluid">
           <div className="row padding">
             <div className="col-lg-12">
@@ -36,7 +72,7 @@ const Index = () => {
                         class="unanimated-mosheed"
                         src={tokenUri.image}
                         alt="animated-mosheed"
-                        style={{ maxHeight: "429px" }}
+                        style={{ maxHeight: '429px' }}
                       />
                       <h3>{tokenUri.name}</h3>
                       <p>{tokenUri.description}</p>
