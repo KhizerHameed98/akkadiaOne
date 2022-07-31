@@ -5,22 +5,24 @@ import { UberContext } from "../../context";
 const User = () => {
   const navigate = useNavigate();
   const [showPopUp, setShowPopUp] = useState(false);
+  const { userInfo, image, hasNFT } = useContext(UberContext);
+
   useEffect(() => {
     setTimeout(() => {
-      // navigate("/loading");
       setShowPopUp(true);
     }, 10000);
   }, []);
   useEffect(() => {
     if (showPopUp) {
       setTimeout(() => {
-        navigate("/loading");
+        if (hasNFT === false) {
+          navigate("/loading");
+        } else if (hasNFT === true) {
+          navigate("/entanglement-receiver");
+        }
       }, 15000);
     }
-  }, [showPopUp]);
-  const { userInfo } = useContext(UberContext);
-
-  const image = Math.floor(Math.random() * 69);
+  }, [showPopUp, hasNFT]);
 
   return (
     <div>

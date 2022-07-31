@@ -1,17 +1,18 @@
-import React, { useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router';
-import { UberContext } from '../../context';
-import SimplexNoise from 'simplex-noise';
-import CountUp from 'react-countup';
+import React, { useContext, useEffect } from "react";
+import { useNavigate } from "react-router";
+import { UberContext } from "../../context";
+import SimplexNoise from "simplex-noise";
+import CountUp from "react-countup";
 
 const Index = () => {
   const { userInfo, tokenUri } = useContext(UberContext);
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     navigate('/entanglement-completed');
-  //   }, 18000);
-  // }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      navigate("/entanglement-completed");
+    }, 18000);
+  }, []);
 
   useEffect(() => {
     // animatation
@@ -73,24 +74,24 @@ const Index = () => {
     };
     const nearestMultiple = (n, d) => n - (n % d);
     const drawTypes = {
-      FILL: 'fill',
-      STROKE: 'stroke',
+      FILL: "fill",
+      STROKE: "stroke",
     };
 
     const textAlignTypes = {
-      CENTER: 'center',
-      END: 'end',
-      LEFT: 'left',
-      RIGHT: 'right',
-      START: 'start',
+      CENTER: "center",
+      END: "end",
+      LEFT: "left",
+      RIGHT: "right",
+      START: "start",
     };
 
     const textBaselineTypes = {
-      ALPHABETIC: 'alphabetic',
-      BOTTOM: 'bottom',
-      HANGING: 'hanging',
-      MIDDLE: 'middle',
-      TOP: 'top',
+      ALPHABETIC: "alphabetic",
+      BOTTOM: "bottom",
+      HANGING: "hanging",
+      MIDDLE: "middle",
+      TOP: "top",
     };
 
     const debounce = (fn, wait = 200) => {
@@ -112,12 +113,12 @@ const Index = () => {
     };
 
     class PropsArray {
-      constructor(count = 0, props = [], type = 'float') {
+      constructor(count = 0, props = [], type = "float") {
         this.count = count;
         this.props = props;
         this.spread = props.length;
         this.values =
-          type === 'float'
+          type === "float"
             ? new Float32Array(count * props.length)
             : new Uint32Array(count * props.length);
       }
@@ -166,7 +167,7 @@ const Index = () => {
     function createOffscreenCanvas(width, height) {
       let _canvas;
 
-      if (typeof OffscreenCanvas !== 'undefined') {
+      if (typeof OffscreenCanvas !== "undefined") {
         _canvas = new OffscreenCanvas(parseFloat(width), parseFloat(height));
       } else {
         _canvas = createCanvas(width, height);
@@ -176,7 +177,7 @@ const Index = () => {
     }
 
     function createCanvas(width, height) {
-      const canvas = document.createElement('canvas');
+      const canvas = document.createElement("canvas");
 
       canvas.width = width;
       canvas.height = height;
@@ -189,7 +190,7 @@ const Index = () => {
       height = innerHeight,
       contextAttributes
     ) {
-      return createCanvas(width, height).getContext('2d', contextAttributes);
+      return createCanvas(width, height).getContext("2d", contextAttributes);
     }
 
     function createOffscreenContext2D(
@@ -198,7 +199,7 @@ const Index = () => {
       contextAttributes
     ) {
       return createOffscreenCanvas(width, height).getContext(
-        '2d',
+        "2d",
         contextAttributes
       );
     }
@@ -212,13 +213,13 @@ const Index = () => {
       const ctx = createContext2D(width, height, contextAttributes);
       const buffer = createOffscreenContext2D(width, height, contextAttributes);
 
-      ctx.canvas.style.position = 'absolute';
-      ctx.canvas.style.top = '0';
-      ctx.canvas.style.left = '0';
+      ctx.canvas.style.position = "absolute";
+      ctx.canvas.style.top = "0";
+      ctx.canvas.style.left = "0";
 
       /* document.body.appendChild(ctx.canvas); */
 
-      document.getElementById('bgid').appendChild(ctx.canvas);
+      document.getElementById("bgid").appendChild(ctx.canvas);
 
       return {
         buffer,
@@ -345,7 +346,7 @@ const Index = () => {
       tick++;
       buffer.clearRect(0, 0, buffer.canvas.width, buffer.canvas.height);
 
-      ctx.fillStyle = 'rgba(0,0,0,0.1)';
+      ctx.fillStyle = "rgba(0,0,0,0.1)";
       ctx.fillRect(0, 0, buffer.canvas.width, buffer.canvas.height);
 
       let i = 0;
@@ -355,24 +356,24 @@ const Index = () => {
       }
 
       ctx.save();
-      ctx.filter = 'blur(8px)';
-      ctx.globalCompositeOperation = 'lighten';
+      ctx.filter = "blur(8px)";
+      ctx.globalCompositeOperation = "lighten";
       ctx.drawImage(buffer.canvas, 0, 0);
       ctx.restore();
 
       ctx.save();
-      ctx.globalCompositeOperation = 'lighter';
+      ctx.globalCompositeOperation = "lighter";
       ctx.drawImage(buffer.canvas, 0, 0);
       ctx.restore();
 
       window.requestAnimationFrame(draw);
     }
 
-    window.addEventListener('load', setup);
-    window.addEventListener('resize', resize);
+    window.addEventListener("load", setup);
+    window.addEventListener("resize", resize);
 
     setTimeout(() => {
-      navigate('/entanglement-completed');
+      navigate("/entanglement-completed");
     }, 18000);
   });
 
@@ -384,7 +385,7 @@ const Index = () => {
             <div className="col-lg-12">
               <div
                 className="d-flex flex-row align-items-center"
-                style={{ position: 'absolute', zIndex: '99', top: '2vh' }}
+                style={{ position: "absolute", zIndex: "99", top: "2vh" }}
               >
                 <img src="assets/images/Logo.png" alt="logo" />
                 <span>{userInfo.username}</span>
