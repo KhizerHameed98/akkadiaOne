@@ -1,13 +1,13 @@
-import React, { useContext, useEffect } from "react";
-import { useNavigate } from "react-router";
-import { UberContext } from "../../context";
-import SimplexNoise from "simplex-noise";
+import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router';
+import { UberContext } from '../../context';
+import SimplexNoise from 'simplex-noise';
 
 const Index = () => {
   const navigate = useNavigate();
   const { userInfo, tokenUri } = useContext(UberContext);
   setTimeout(() => {
-    navigate("/entanglement-receiver");
+    navigate('/entanglement-receiver');
   }, 15000);
   useEffect(() => {
     // animatation
@@ -315,7 +315,14 @@ const Index = () => {
   return (
     <>
       <div className="launching-main-page-fifth">
-        <div className="container-fluid">
+        <div
+          className="container-fluid"
+          style={{
+            backgroundImage: 'url(assets/images/bg-img.gif)',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center center',
+          }}
+        >
           <div className="row padding">
             <div className="col-lg-12">
               <div className="d-flex flex-row align-items-center">
@@ -336,7 +343,7 @@ const Index = () => {
                         class="unanimated-mosheed"
                         src={tokenUri.image}
                         alt="animated-mosheed"
-                        style={{ maxHeight: "385px" }}
+                        style={{ maxHeight: '385px' }}
                       />
                       <h3>ENTAGLEMENT COMPLETE</h3>
                       <p> 100%</p>

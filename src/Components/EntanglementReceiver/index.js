@@ -27,7 +27,11 @@ const Index = () => {
 
   return (
     <>
-      <GlitchSquiggly disabled={!isGlitched} baseFrequency={0.0099999}>
+      <GlitchSquiggly
+        disabled={!isGlitched}
+        baseFrequency={0.0099999}
+        scaleNoise={5}
+      >
         <div className="launching-main-page-fifth">
           {open && (
             <Modal in={!open}>
@@ -38,6 +42,7 @@ const Index = () => {
                   justifyContent: 'center',
                   width: '100vw',
                   height: '100vh',
+                  overflowY: 'hidden',
                 }}
               >
                 <GlitchText
@@ -56,15 +61,20 @@ const Index = () => {
                       textAlign: 'center',
                     }}
                   >
-                    Connection
-                    <br />
-                    Lost
+                    Connection Lost
                   </p>
                 </GlitchText>
               </div>
             </Modal>
           )}
-          <div className="container-fluid">
+          <div
+            className="container-fluid"
+            style={{
+              backgroundImage: 'url(assets/images/bg-img.gif)',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center center',
+            }}
+          >
             <div className="row padding">
               <div className="col-lg-12">
                 <div className="d-flex flex-row align-items-center">
@@ -111,7 +121,7 @@ const Index = () => {
             <div className="row">
               <div className="col-lg-12">
                 <img
-                  className="elipse"
+                  className="elipse2"
                   src="assets/images/Elipse.png"
                   alt="Elipse"
                 />

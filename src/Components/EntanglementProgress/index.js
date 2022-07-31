@@ -1,15 +1,15 @@
-import React, { useContext, useEffect } from "react";
-import { useNavigate } from "react-router";
-import { UberContext } from "../../context";
-import SimplexNoise from "simplex-noise";
-import CountUp from "react-countup";
+import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router';
+import { UberContext } from '../../context';
+import SimplexNoise from 'simplex-noise';
+import CountUp from 'react-countup';
 
 const Index = () => {
   const { userInfo, tokenUri } = useContext(UberContext);
   const navigate = useNavigate();
   useEffect(() => {
     setTimeout(() => {
-      navigate("/entanglement-completed");
+      navigate('/entanglement-completed');
     }, 18000);
   }, []);
 
@@ -312,19 +312,26 @@ const Index = () => {
     // window.addEventListener('load', setup);
     // window.addEventListener('resize', resize);
     setTimeout(() => {
-      navigate("/entanglement-completed");
+      navigate('/entanglement-completed');
     }, 18000);
   });
 
   return (
     <>
       <div className="launching-main-page-fifth" id="bgid">
-        <div className="container-fluid">
+        <div
+          className="container-fluid"
+          style={{
+            backgroundImage: 'url(assets/images/bg-img.gif)',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center center',
+          }}
+        >
           <div className="row padding">
             <div className="col-lg-12">
               <div
                 className="d-flex flex-row align-items-center"
-                style={{ position: "absolute", zIndex: "99", top: "2vh" }}
+                style={{ position: 'absolute', zIndex: '99', top: '2vh' }}
               >
                 <a href="/">
                   <img src="assets/images/Logo.png" alt="logo" />

@@ -373,7 +373,14 @@ const Index = () => {
 
   return (
     <div className="launching-main-page-forth" id="bgid">
-      <div className="container-fluid">
+      <div
+        className="container-fluid"
+        style={{
+          backgroundImage: 'url(assets/images/bg-img.gif)',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center center',
+        }}
+      >
         <div class="row padding">
           <div class="col-lg-12">
             <div className="d-flex flex-row align-items-center">
@@ -416,6 +423,7 @@ const Index = () => {
           <div className="col-lg-12">
             <img
               className="elipse"
+              style={{ paddingTop: '42vh' }}
               src="assets/images/Elipse.png"
               alt="Elipse"
             />
