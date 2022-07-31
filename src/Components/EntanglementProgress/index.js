@@ -61,14 +61,11 @@ const Index = () => {
     // const vmax = (p) => max(vh(p), vw(p));
     // const intToRGBA = (n) => {
     //   let r, g, b, a;
-
     //   n >>>= 0;
-
     //   r = (n & 0xff000000) >>> 24;
     //   g = (n & 0xff0000) >>> 16;
     //   b = (n & 0xff00) >>> 8;
     //   a = (n & 0xff) / 255;
-
     //   return `rgba(${[r, g, b, a].join()})`;
     // };
     // const nearestMultiple = (n, d) => n - (n % d);
@@ -76,7 +73,6 @@ const Index = () => {
     //   FILL: 'fill',
     //   STROKE: 'stroke',
     // };
-
     // const textAlignTypes = {
     //   CENTER: 'center',
     //   END: 'end',
@@ -84,7 +80,6 @@ const Index = () => {
     //   RIGHT: 'right',
     //   START: 'start',
     // };
-
     // const textBaselineTypes = {
     //   ALPHABETIC: 'alphabetic',
     //   BOTTOM: 'bottom',
@@ -92,25 +87,19 @@ const Index = () => {
     //   MIDDLE: 'middle',
     //   TOP: 'top',
     // };
-
     // const debounce = (fn, wait = 200) => {
     //   let timeout;
-
     //   return (...args) => {
     //     if (timeout) clearTimeout(timeout);
-
     //     timeout = setTimeout(() => fn(...args), wait);
     //   };
     // };
-
     // Array.prototype.lerp = function (t = [], a = 0) {
     //   this.forEach((n, i) => (this[i] = lerp(n, t[i], a)));
     // };
-
     // Float32Array.prototype.get = function (i = 0, n = 0) {
     //   return this.slice(i, i + n);
     // };
-
     // class PropsArray {
     //   constructor(count = 0, props = [], type = 'float') {
     //     this.count = count;
@@ -136,51 +125,41 @@ const Index = () => {
     //   getMap(i = 0) {
     //     return this.get(i).reduce((r, v, i) => {
     //       r[this.props[i]] = v;
-
     //       return r;
     //     }, {});
     //   }
     //   forEach(cb) {
     //     let i = 0;
-
     //     for (; i < this.length; i += this.spread) {
     //       cb(this.get(i), i, this);
     //     }
     //   }
     //   map(cb) {
     //     let i = 0;
-
     //     for (; i < this.length; i += this.spread) {
     //       this.set(cb(this.get(i), i, this), i);
     //     }
     //   }
     //   async *read() {
     //     let i = 0;
-
     //     for (; i < this.length; i += this.spread) {
     //       yield { index: i, value: this.get(i) };
     //     }
     //   }
     // }
-
     // function createOffscreenCanvas(width, height) {
     //   let _canvas;
-
     //   if (typeof OffscreenCanvas !== 'undefined') {
     //     _canvas = new OffscreenCanvas(parseFloat(width), parseFloat(height));
     //   } else {
     //     _canvas = createCanvas(width, height);
     //   }
-
     //   return _canvas;
     // }
-
     // function createCanvas(width, height) {
     //   const canvas = document.createElement('canvas');
-
     //   canvas.width = width;
     //   canvas.height = height;
-
     //   return canvas;
     // }
     // const { innerWidth, innerHeight } = window;
@@ -191,7 +170,6 @@ const Index = () => {
     // ) {
     //   return createCanvas(width, height).getContext('2d', contextAttributes);
     // }
-
     // function createOffscreenContext2D(
     //   width = innerWidth,
     //   height = innerHeight,
@@ -202,46 +180,35 @@ const Index = () => {
     //     contextAttributes
     //   );
     // }
-
     // function createRenderingContext(width, height) {
     //   const contextAttributes = {
     //     alpha: true,
     //     desynchronized: true,
     //   };
-
     //   const ctx = createContext2D(width, height, contextAttributes);
     //   const buffer = createOffscreenContext2D(width, height, contextAttributes);
-
     //   ctx.canvas.style.position = 'absolute';
     //   ctx.canvas.style.top = '0';
     //   ctx.canvas.style.left = '0';
-
     //   /* document.body.appendChild(ctx.canvas); */
-
     //   document.getElementById('bgid').appendChild(ctx.canvas);
-
     //   return {
     //     buffer,
     //     ctx,
     //   };
     // }
-
     // // script2
-
     // const particleCount = 2000;
     // const particlePropCount = 9;
     // const particlePropsLength = particleCount * particlePropCount;
     // const spawnRadius = rand(150) + 150;
     // const noiseSteps = 6;
     // const { buffer, ctx } = createRenderingContext();
-
     // // Utils: https://codepen.io/seanfree/pen/LvrJWz
-
     // let center;
     // let tick;
     // let simplex;
     // let particleProps;
-
     // function setup() {
     //   tick = 0;
     //   center = [];
@@ -249,21 +216,16 @@ const Index = () => {
     //   createParticles();
     //   draw();
     // }
-
     // function createParticles() {
     //   simplex = new SimplexNoise();
     //   particleProps = new Float32Array(particleCount * particlePropCount);
-
     //   let i;
-
     //   for (i = 0; i < particlePropsLength; i += particlePropCount) {
     //     initParticle(i);
     //   }
     // }
-
     // function initParticle(i) {
     //   let iy, ih, rd, rt, cx, sy, x, y, s, rv, vx, vy, t, h, w, l, ttl;
-
     //   iy = i + 1;
     //   ih = (0.5 * i) | 0;
     //   rd = rand(spawnRadius);
@@ -280,17 +242,14 @@ const Index = () => {
     //   h = randIn(160, 260);
     //   l = 0;
     //   ttl = randIn(50, 200);
-
     //   particleProps.set([x, y, vx, vy, s, h, w, l, ttl], i);
     // }
-
     // function drawParticle(i) {
     //   let n, dx, dy, dl, c;
     //   let [x, y, vx, vy, s, h, w, l, ttl] = particleProps.get(
     //     i,
     //     particlePropCount
     //   );
-
     //   n =
     //     simplex.noise3D(x * 0.0025, y * 0.0025, tick * 0.0005) *
     //     TAU *
@@ -301,9 +260,7 @@ const Index = () => {
     //   dy = y + vy * s;
     //   dl = fadeInOut(l, ttl);
     //   c = `hsla(${h},50%,60%,${dl})`;
-
     //   l++;
-
     //   buffer.save();
     //   buffer.lineWidth = dl * w + 1;
     //   buffer.strokeStyle = c;
@@ -313,64 +270,47 @@ const Index = () => {
     //   buffer.stroke();
     //   buffer.closePath();
     //   buffer.restore();
-
     //   particleProps.set([dx, dy, vx, vy, s, h, w, l, ttl], i);
-
     //   (checkBounds(x, y) || l > ttl) && initParticle(i);
     // }
-
     // function checkBounds(x, y) {
     //   return (
     //     x > buffer.canvas.width || x < 0 || y > buffer.canvas.height || y < 0
     //   );
     // }
-
     // function resize() {
     //   const { innerWidth, innerHeight } = window;
     //   buffer.canvas.width = innerWidth;
     //   buffer.canvas.height = innerHeight;
-
     //   buffer.drawImage(ctx.canvas, 0, 0);
-
     //   ctx.canvas.width = innerWidth;
     //   ctx.canvas.height = innerHeight;
-
     //   ctx.drawImage(buffer.canvas, 0, 0);
-
     //   center[0] = 0.5 * innerWidth;
     //   center[1] = 0.5 * innerHeight;
     // }
-
     // function draw() {
     //   tick++;
     //   buffer.clearRect(0, 0, buffer.canvas.width, buffer.canvas.height);
-
     //   ctx.fillStyle = 'rgba(0,0,0,0.1)';
     //   ctx.fillRect(0, 0, buffer.canvas.width, buffer.canvas.height);
-
     //   let i = 0;
-
     //   for (; i < particlePropsLength; i += particlePropCount) {
     //     drawParticle(i);
     //   }
-
     //   ctx.save();
     //   ctx.filter = 'blur(8px)';
     //   ctx.globalCompositeOperation = 'lighten';
     //   ctx.drawImage(buffer.canvas, 0, 0);
     //   ctx.restore();
-
     //   ctx.save();
     //   ctx.globalCompositeOperation = 'lighter';
     //   ctx.drawImage(buffer.canvas, 0, 0);
     //   ctx.restore();
-
     //   window.requestAnimationFrame(draw);
     // }
-
     // window.addEventListener('load', setup);
     // window.addEventListener('resize', resize);
-
     setTimeout(() => {
       navigate('/entanglement-completed');
     }, 18000);
@@ -386,8 +326,10 @@ const Index = () => {
                 className="d-flex flex-row align-items-center"
                 style={{ position: 'absolute', zIndex: '99', top: '2vh' }}
               >
-                <img src="assets/images/Logo.png" alt="logo" />
-                <span>{userInfo.username}</span>
+                <a href="/">
+                  <img src="assets/images/Logo.png" alt="logo" />
+                  <span>{userInfo.username}</span>
+                </a>
               </div>
             </div>
           </div>
@@ -416,7 +358,7 @@ const Index = () => {
           <div className="row">
             <div className="col-lg-12">
               <img
-                className="elipse"
+                className="elipse2"
                 src="assets/images/Elipse.png"
                 alt="Elipse"
               />

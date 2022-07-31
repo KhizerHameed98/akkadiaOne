@@ -1,22 +1,22 @@
-import React, { useContext, useState } from "react";
-import toast from "react-hot-toast";
-import { Navigate, useNavigate } from "react-router";
-import { UberContext } from "../../context";
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
+import { Navigate, useNavigate } from 'react-router';
+import { UberContext } from '../../context';
 
 const Login = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const { submitRegisterForm } = useContext(UberContext);
   function isValidEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
   }
   const submitForm = async () => {
     if (!isValidEmail(email) || !username) {
-      toast.error("Invalid Email or Username");
+      toast.error('Invalid Email or Username');
     } else {
       await submitRegisterForm(username, email);
-      navigate("/user");
+      navigate('/user');
     }
   };
 
@@ -26,11 +26,13 @@ const Login = () => {
         <div className="container-fluid">
           <div className="row padding">
             <div className="col-lg-12">
-              <img
-                style={{ float: "left" }}
-                src="assets/images/Logo.png"
-                alt="logo"
-              />
+              <a href="/">
+                <img
+                  style={{ float: 'left' }}
+                  src="assets/images/Logo.png"
+                  alt="logo"
+                />
+              </a>
             </div>
           </div>
           <div className="container">
@@ -62,7 +64,7 @@ const Login = () => {
                 </div>
                 <button
                   class="establish-connection"
-                  style={{ cursor: "pointer" }}
+                  style={{ cursor: 'pointer' }}
                   onClick={submitForm}
                 >
                   Gain Access

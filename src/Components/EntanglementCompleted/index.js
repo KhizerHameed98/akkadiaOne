@@ -317,7 +317,9 @@ const Index = () => {
           <div className="row padding">
             <div className="col-lg-12">
               <div className="d-flex flex-row align-items-center">
-                <img src="assets/images/Logo.png" alt="logo" />
+                <a href="/">
+                  <img src="assets/images/Logo.png" alt="logo" />
+                </a>
                 <span>{userInfo.username}</span>
               </div>
             </div>

@@ -236,11 +236,13 @@ const WalletScreen = () => {
         <div className="container-fluid">
           <div className="row padding">
             <div className="col-lg-12">
-              <img
-                style={{ float: 'left' }}
-                src="assets/images/Logo.png"
-                alt="logo"
-              />
+              <a href="/">
+                <img
+                  style={{ float: 'left' }}
+                  src="assets/images/Logo.png"
+                  alt="logo"
+                />
+              </a>
             </div>
           </div>
           <div className="container">
@@ -249,9 +251,9 @@ const WalletScreen = () => {
                 {/* <GlitchClip onHover={true}> */}
                 <div className="main-content">
                   <img
-                    src="assets/images/MOSHED.png"
+                    src="assets/images/globle.gif"
                     alt="MOSHED"
-                    height="300"
+                    height="350"
                   />
                   <div className="page-content"></div>
                 </div>

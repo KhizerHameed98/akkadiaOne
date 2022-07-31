@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Loader from "../Loader";
+import React, { useState } from 'react';
+import Loader from '../Loader';
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
 
   return (
     <div>
@@ -11,11 +11,13 @@ const Login = () => {
         <div className="container-fluid">
           <div className="row padding">
             <div className="col-lg-12">
-              <img
-                style={{ float: "left" }}
-                src="assets/images/Logo.png"
-                alt="logo"
-              />
+              <a href="/">
+                <img
+                  style={{ float: 'left' }}
+                  src="assets/images/Logo.png"
+                  alt="logo"
+                />
+              </a>
             </div>
           </div>
           <div className="container">

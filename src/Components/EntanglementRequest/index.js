@@ -377,8 +377,10 @@ const Index = () => {
         <div class="row padding">
           <div class="col-lg-12">
             <div className="d-flex flex-row align-items-center">
-              <img src="assets/images/Logo.png" alt="logo" />
-              <span>{userInfo.username}</span>
+              <a href="/">
+                <img src="assets/images/Logo.png" alt="logo" />
+                <span>{userInfo.username}</span>
+              </a>
             </div>
           </div>
         </div>

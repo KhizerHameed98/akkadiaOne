@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
-import ProgressBar from "@ramonak/react-progress-bar";
-import { UberContext } from "../../context";
-import { useNavigate } from "react-router";
+import React, { useContext, useEffect, useState } from 'react';
+import ProgressBar from '@ramonak/react-progress-bar';
+import { UberContext } from '../../context';
+import { useNavigate } from 'react-router';
 
 const Loading = () => {
   const { userInfo, hasNFT, getNft, tokenUri } = useContext(UberContext);
@@ -12,7 +12,7 @@ const Loading = () => {
     var i = 0;
     if (i == 0) {
       i = 1;
-      var elem = document.getElementById("myBar");
+      var elem = document.getElementById('myBar');
       var width = 1;
       var id = setInterval(frame, 10);
       function frame() {
@@ -21,7 +21,7 @@ const Loading = () => {
           i = 0;
         } else {
           width++;
-          elem.style.width = width + "%";
+          elem.style.width = width + '%';
         }
       }
     }
@@ -33,9 +33,9 @@ const Loading = () => {
   useEffect(() => {
     if (counter >= 99) {
       if (hasNFT === false) {
-        navigate("/entanglement-request");
+        navigate('/entanglement-request');
       } else if (hasNFT === true && tokenUri) {
-        navigate("/entanglement-progress");
+        navigate('/entanglement-progress');
       }
     }
   }, [counter, hasNFT]);
@@ -59,12 +59,14 @@ const Loading = () => {
             <div className="row padding">
               <div className="col-lg-12">
                 <div className="d-flex flex-row align-items-center">
-                  <img
-                    style={{ float: "left" }}
-                    src="assets/images/Logo.png"
-                    alt="logo"
-                  />
-                  <span>{userInfo.username}</span>
+                  <a href="/">
+                    <img
+                      style={{ float: 'left' }}
+                      src="assets/images/Logo.png"
+                      alt="logo"
+                    />
+                    <span>{userInfo.username}</span>
+                  </a>
                 </div>
               </div>
             </div>

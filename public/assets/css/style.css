@@ -453,6 +453,12 @@ body {
   right: 0; */
 }
 
+.elipse2 {
+  float: right;
+  padding-right: 50px;
+  padding-top: 75vh;
+}
+
 /*******************launching-landing-page 5*************/
 .launching-main-page-fifth {
   background-image: url(assets/images/animapod.png);

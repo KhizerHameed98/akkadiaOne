@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router";
-import { UberContext } from "../../context";
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
+import { UberContext } from '../../context';
 
 const User = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const User = () => {
   useEffect(() => {
     if (showPopUp) {
       setTimeout(() => {
-        navigate("/loading");
+        navigate('/loading');
       }, 15000);
     }
   }, [showPopUp]);
@@ -33,11 +33,13 @@ const User = () => {
         <div className="container-fluid">
           <div className="row padding">
             <div className="col-lg-12">
-              <img
-                style={{ float: "left" }}
-                src="assets/images/Logo.png"
-                alt="logo"
-              />
+              <a href="/">
+                <img
+                  style={{ float: 'left' }}
+                  src="assets/images/Logo.png"
+                  alt="logo"
+                />
+              </a>
             </div>
           </div>
           {showPopUp && (
