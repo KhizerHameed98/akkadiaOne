@@ -11,16 +11,19 @@ const User = () => {
       setShowPopUp(true);
     }, 10000);
   }, []);
+  const { userInfo, image, hasNFT } = useContext(UberContext);
+
   useEffect(() => {
     if (showPopUp) {
       setTimeout(() => {
-        navigate('/loading');
+        if (hasNFT === false) {
+          navigate('/loading');
+        } else if (hasNFT === true) {
+          navigate('/entanglement-receiver');
+        }
       }, 15000);
     }
-  }, [showPopUp]);
-  const { userInfo } = useContext(UberContext);
-
-  const image = Math.floor(Math.random() * 69);
+  }, [showPopUp, hasNFT]);
 
   return (
     <div>

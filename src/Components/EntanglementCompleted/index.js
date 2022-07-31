@@ -1,12 +1,14 @@
-import React, { useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router';
-import { UberContext } from '../../context';
-import SimplexNoise from 'simplex-noise';
+import React, { useContext, useEffect } from "react";
+import { useNavigate } from "react-router";
+import { UberContext } from "../../context";
+import SimplexNoise from "simplex-noise";
 
 const Index = () => {
   const navigate = useNavigate();
   const { userInfo, tokenUri } = useContext(UberContext);
-
+  setTimeout(() => {
+    navigate("/entanglement-receiver");
+  }, 15000);
   useEffect(() => {
     // animatation
     // const {
@@ -334,7 +336,7 @@ const Index = () => {
                         class="unanimated-mosheed"
                         src={tokenUri.image}
                         alt="animated-mosheed"
-                        style={{ maxHeight: '385px' }}
+                        style={{ maxHeight: "385px" }}
                       />
                       <h3>ENTAGLEMENT COMPLETE</h3>
                       <p> 100%</p>
