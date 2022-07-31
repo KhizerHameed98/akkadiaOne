@@ -31,7 +31,6 @@ export const UberProvider = ({ children }) => {
   const [registeredAlready, setRegisteredAlready] = useState();
   const [allowed, setAllowed] = useState();
   const [tokenUri, setTokenUri] = useState();
-  const [image, setImage] = useState(Math.floor(Math.random() * 69));
 
   const connectMetamask = async () => {
     try {
@@ -237,7 +236,6 @@ export const UberProvider = ({ children }) => {
         mintNFT,
         allowed,
         tokenUri,
-        image,
       }}
     >
       {children}
