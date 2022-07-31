@@ -1,17 +1,17 @@
-import React, { useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router';
-import { UberContext } from '../../context';
-import SimplexNoise from 'simplex-noise';
-import CountUp from 'react-countup';
+import React, { useContext, useEffect } from "react";
+import { useNavigate } from "react-router";
+import { UberContext } from "../../context";
+import SimplexNoise from "simplex-noise";
+import CountUp from "react-countup";
 
 const Index = () => {
   const { userInfo, tokenUri } = useContext(UberContext);
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     navigate('/entanglement-completed');
-  //   }, 18000);
-  // }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      navigate("/entanglement-completed");
+    }, 18000);
+  }, []);
 
   useEffect(() => {
     // animatation
@@ -372,7 +372,7 @@ const Index = () => {
     // window.addEventListener('resize', resize);
 
     setTimeout(() => {
-      navigate('/entanglement-completed');
+      navigate("/entanglement-completed");
     }, 18000);
   });
 
@@ -384,7 +384,7 @@ const Index = () => {
             <div className="col-lg-12">
               <div
                 className="d-flex flex-row align-items-center"
-                style={{ position: 'absolute', zIndex: '99', top: '2vh' }}
+                style={{ position: "absolute", zIndex: "99", top: "2vh" }}
               >
                 <img src="assets/images/Logo.png" alt="logo" />
                 <span>{userInfo.username}</span>
